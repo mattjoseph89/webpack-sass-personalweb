@@ -1,13 +1,20 @@
-import _ from 'lodash';
+import './reset.css';
+import './buttons.scss';
+import './layout.scss';
+import './navbar.scss';
+import './type.scss';
+import './mediaq.scss';
 
-  function component() {
-    var element = document.createElement('div');
 
-
-  // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-    return element;
-  }
-
-  document.body.appendChild(component());
+document.querySelector('.toggleNav').addEventListener('click', function() {
+  var navBar = document.querySelector('nav');
+  if (navBar.className === 'clearfix') {
+    navBar.className = 'clearfix none';
+    var changezIndex = setTimeout(function() {
+      navBar.style.zIndex = 1;
+    }, 200);
+  } else {
+    navBar.style.zIndex = 0;
+    navBar.className = 'clearfix';
+  };
+});
